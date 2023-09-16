@@ -1,0 +1,19 @@
+
+docker-compose-myapp.yml 
+version: '3.1'
+services:
+  login: 
+    image: 
+    networks:
+  registration: 
+    image:
+    networks:
+  payment: 
+    image:
+    networks:
+  order: 
+    image:
+    networks:
+  mongodb:
+    image:
+    networks:
