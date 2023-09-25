@@ -1,0 +1,88 @@
+Deployments  
+==========
+  Advantages:
+     Deploy a RS.
+     Updates pods (PodTemplateSpec).
+     Rollback to older Deployment versions.
+     Scale Deployment up or down.
+     Pause and resume the Deployment.
+     Use the status of the Deployment to determine state of replicas.
+     Clean up older RS that you don’t need anymore.
+
+kubectl apply deploy-app.yml :
+  rollout a ReplicaSet  
+
+---
+kind: Deployment   
+apiVersion: apps/v1    
+metadata:
+  name: <deploymentName> 
+  labels:
+    <key>: <value> 
+spec:
+  strategy:
+    rollingUpdates   
+    recreate  
+  selector:
+    matchLabels:
+      <key>: value           
+    matchExpressions:
+    - key: <key>
+      operator: <in /not in>  
+      values: 
+      - <value1> 
+      - <value3>      
+  template:
+    metadata:
+      name: podName  
+    labels:
+      <key>: <vales>  
+    spec:
+      containers:
+      - name: containerName
+---
+---
+app.yml  - kams
+------
+kind: Deployment
+apiVersion: apps/v1  
+metadata:
+  name:  webapp 
+  namespace: dev    
+  labels:
+    app: be  
+spec: 
+  replicas: 1     
+  selector:
+    matchLabels:
+      app: web  
+  template:
+    metadata:
+      name: webapp 
+      labels: 
+        app: web  
+    spec: 
+      containers:
+      - name: webappc
+        image: groua77/maven-web-app:1  
+        ports:
+        - containerPort: 8080  
+
+webappsvc.yml  
+-------------
+kind: Service  
+apiVersion: v1  
+metadata:
+  name: webappsvc  
+spec:
+  selector:
+    app: web  
+  type: NodePort 
+  ports:
+  - port: 80 
+    targetPort: 8080
+    nodePort: 31000 #[30000-32676]  
+
+
+  # your_ip:31000/maven-web-app  
+  #to check if the app is running on the browser
