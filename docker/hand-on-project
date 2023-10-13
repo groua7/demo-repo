@@ -1,0 +1,27 @@
+To pass a file from your local machine into a Docker image, you can use the COPY instruction in your Dockerfile. Once the file is inside the image, you can then compile it using the gcc command. Here's how you can do it:
+
+Assuming your Dockerfile is in the same directory as the hackerapi.c file, you can create a Dockerfile like this:
+
+Dockerfile
+Copy code
+# Start with a base image
+FROM ubuntu:20.04
+
+# Copy the hackerapi.c file into the image
+COPY hackerapi.c /tmp/hackerapi.c
+
+# Install the GCC compiler
+RUN apt-get update && apt-get install -y gcc
+
+# Compile the hackerapi.c file
+RUN gcc -o /tmp/hackerapi /tmp/hackerapi.c
+
+# Your other Dockerfile instructions
+# ...
+Here's a breakdown of what this Dockerfile does:
+
+It starts with the Ubuntu 20.04 base image.
+It copies the hackerapi.c file from the local directory (where the Dockerfile is located) into the /tmp directory of the image.
+It installs the GCC compiler using apt-get.
+It compiles the hackerapi.c file using the gcc command and produces an executable named hackerapi in the /tmp directory.
+After you build an image from this Dockerfile and run a container from that image, you can find the compiled hackerapi binary in the /tmp directory within the container.
