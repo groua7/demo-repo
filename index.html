@@ -1,0 +1,9 @@
+# simple script to install httpd on linux OS, you will have to become root user or use sudo
+# you can also use it when creating your instance as user data, in AWS
+
+#!bin/bash
+ yum update -y
+ yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>HELLO WORLD FROM ($hostnamt f)<h1> > /var/www/html/index.html 
