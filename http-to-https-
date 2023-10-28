@@ -1,0 +1,5 @@
+# in this demo file, we are goinr to see how to change your http to https in AWS,
+# the only different is that https is the secure version of http, that means all https trafics are encripted and safe!
+
+
+first you will need to have some few services ready in your AWS. ( DNS-host, ALB, ASG, TG, SG, ACM,)
