@@ -1,0 +1,51 @@
+
+To copy the current code base to a feature branch in a Git repository and isolate additional development from the master branch, you can follow these steps using the existing repository "home/ubuntu/123456789-git-feature-branch-push":
+
+Navigate to Your Git Repository:
+
+Open your terminal and navigate to your Git repository's directory using the cd command.
+
+bash
+Copy code
+cd /home/ubuntu/123456789-git-feature-branch-push
+Update the Master Branch:
+
+Make sure your local master branch is up to date with the remote repository:
+
+bash
+Copy code
+git checkout master
+git pull origin master
+Create a Feature Branch:
+
+Create a new feature branch based on the current state of the master branch. You can name the branch whatever you like:
+
+bash
+Copy code
+git checkout -b feature-branch-name
+Replace feature-branch-name with a descriptive name for your feature branch.
+
+Make Changes:
+
+Make your desired changes to the code in this feature branch.
+
+Commit Changes:
+
+After making changes, commit your changes to the feature branch:
+
+bash
+Copy code
+git add .
+git commit -m "Description of your changes"
+Replace "Description of your changes" with a meaningful commit message that describes what you did in this commit.
+
+Push the Feature Branch to Remote:
+
+Push your feature branch to the remote repository:
+
+bash
+Copy code
+git push origin feature-branch-name
+This will make your feature branch available in the remote repository.
+
+Now you have a feature branch with your additional development that won't affect the master branch until you decide to merge your changes. You can continue working on this branch and, when ready, merge it
