@@ -1,4 +1,6 @@
-To pass a file from your local machine into a Docker image, you can use the COPY instruction in your Dockerfile. Once the file is inside the image, you can then compile it using the gcc command. Here's how you can do it:
+To pass a file from your local machine into a Docker image, you can use 
+the COPY instruction in your Dockerfile. Once the file is inside the image,
+you can then compile it using the gcc command. Here's how you can do it:
 
 Assuming your Dockerfile is in the same directory as the hackerapi.c file, you can create a Dockerfile like this:
 
